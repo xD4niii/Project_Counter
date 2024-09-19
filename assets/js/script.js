@@ -8,7 +8,7 @@ document.body.appendChild(title);
 
 let countBox = document.createElement("div");
 countBox.innerHTML = counter;
-countBox.className = "Box";
+countBox.className = "box";
 document.body.appendChild(countBox);
 
 let minBtn = document.createElement("button");

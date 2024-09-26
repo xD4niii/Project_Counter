@@ -20,8 +20,14 @@ body{
     font-size: 80px;
 }
 
+.buttons{
+    display: flex;
+    max-width: fit-content;
+}
+
 .min_btn,
-.plus_btn {
+.plus_btn,
+.res_btn {
     scale: 0.5;
     padding: 45px 95px;
    /* width: 200px;
@@ -38,27 +44,30 @@ body{
   }
 
   .min_btn:hover,
-  .plus_btn:hover {
-    color: black;
+  .plus_btn:hover,
+  .res_btn:hover {
+      color: black;
   }
   
   .min_btn:after,
-.plus_btn:after {
-    content: "";
-    background: rgb(151, 255, 110);
-    position: absolute;
-    z-index: -1;
-    left: -20%;
-    right: -20%;
-    top: 0;
-    bottom: 0;
-    transform: skewX(-35deg) scale(0, 1);
-    transition: all 0.5s;
+  .plus_btn:after,
+  .res_btn:after {
+      content: "";
+      background: rgb(151, 255, 110);
+      position: absolute;
+      z-index: -1;
+      left: -20%;
+      right: -20%;
+      top: 0;
+      bottom: 0;
+      transform: skewX(-35deg) scale(0, 1);
+      transition: all 0.5s;
   }
   
   .min_btn:hover:after,
-.plus_btn:hover:after {
-    transform: skewX(-35deg) scale(1, 1);
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
+  .plus_btn:hover:after,
+  .res_btn:hover:after {
+      transform: skewX(-35deg) scale(1, 1);
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
   }

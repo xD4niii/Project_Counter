@@ -1,30 +1,47 @@
+function createElement(tagName, className, innerHTML, dataAction) {
+    const element = document.createElement(tagName);
+    if (className) element.className = className;
+    if (innerHTML !== undefined) element.innerHTML = innerHTML;
+    if (dataAction) element.setAttribute("data-action", dataAction);
+    return element;
+}
 
 let counter = 0;
 
-let title = document.createElement("h1");
-title.innerHTML = "Simple Counter";
-title.className = "title";
-document.body.appendChild(title);
+let container = createElement("div");
 
-let countBox = document.createElement("div");
+let title = createElement("h1", "title", "Simple Counter");
+container.appendChild(title);
+
+let countBox = createElement("div", "box", counter);
+container.appendChild(countBox);
+
+let buttonsContainer = createElement("div", "buttons");
+
+let decrementBtn = createElement("div", "min_btn", "-", "decrement");
+let resetBtn = createElement("div", "res_btn", "reset", "reset");
+let incrementBtn = createElement("div", "plus_btn", "+", "increment");
+
+buttonsContainer.appendChild(decrementBtn);
+buttonsContainer.appendChild(resetBtn);
+buttonsContainer.appendChild(incrementBtn);
+
+container.appendChild(buttonsContainer);
+
+document.body.appendChild(container);
+
 countBox.innerHTML = counter;
-countBox.className = "box";
-document.body.appendChild(countBox);
 
-let minBtn = document.createElement("button");
-minBtn.innerHTML = "-";
-minBtn.className = "min_btn"
-minBtn.addEventListener("click", () =>{
-    counter --;
+buttonsContainer.addEventListener("click", (event) => {
+    const action = event.target.getAttribute("data-action");
+    
+    if (action === "increment") {
+        counter++;
+    } else if (action === "decrement") {
+        counter--;
+    } else if (action === "reset") {
+        counter = 0;
+    }
+    
     countBox.innerHTML = counter;
-})
-document.body.appendChild(minBtn);
-
-let plusBtn = document.createElement("button");
-plusBtn.innerHTML = "+";
-plusBtn.className = "plus_btn"
-plusBtn.addEventListener("click", () =>{
-    counter ++;
-    countBox.innerHTML = counter;
-})
-document.body.appendChild(plusBtn);
+});
